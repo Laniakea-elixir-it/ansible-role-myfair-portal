@@ -1,0 +1,10 @@
+---
+- name: Clone myFAIR
+  git:
+    repo: 'https://github.com/ErasmusMC-Bioinformatics/myFAIR'
+    dest: '{{ myFAIR_install_path }}'
+
+- name: 'make manage.py executable'
+  file:
+    path: '{{ myFAIR_install_path }}/manage.py'
+    mode: a+x

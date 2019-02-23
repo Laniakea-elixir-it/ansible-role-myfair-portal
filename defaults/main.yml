@@ -1,2 +1,4 @@
 ---
 # defaults file for ansible-role-myfair-portal
+
+myFAIR_install_path: '/myFAIR'

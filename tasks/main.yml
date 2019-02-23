@@ -1,2 +1,6 @@
 ---
 # tasks file for ansible-role-myfair-portal
+
+- include: prereq.yml
+
+- include: myfair.yml

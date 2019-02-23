@@ -1,0 +1,20 @@
+---
+- name: Install prerequisites
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - python3
+    - python3-pip
+    - lftp
+
+- name: Create myFAIR directory
+  file:
+    path: '{{ myFAIR_install_path }}'
+    state: directory
+
+- name: Install python3 packages in myFAIR virtualenv
+  pip:
+    name: django bioblend rdflib plotly python-magic
+    virtualenv: '{{ myFAIR_install_path }}/.venv'
