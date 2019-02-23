@@ -14,8 +14,3 @@
   file:
     path: '{{ myFAIR_install_path }}'
     state: directory
-
-- name: Install python3 packages in myFAIR virtualenv
-  pip:
-    name: django bioblend rdflib plotly python-magic
-    virtualenv: '{{ myFAIR_install_path }}/.venv'
