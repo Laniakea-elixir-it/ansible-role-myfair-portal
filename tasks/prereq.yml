@@ -15,3 +15,5 @@
   file:
     path: '{{ myFAIR_install_path }}'
     state: directory
+    owner: www-data
+    group: www-data
