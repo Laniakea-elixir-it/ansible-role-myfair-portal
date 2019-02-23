@@ -2,3 +2,4 @@
 # defaults file for ansible-role-myfair-portal
 
 myFAIR_install_path: '/myFAIR'
+myFAIR_venv_path: '{{ myFAIR_install_path }}/.venv'

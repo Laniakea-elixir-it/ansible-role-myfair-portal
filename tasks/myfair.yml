@@ -4,10 +4,13 @@
     repo: 'https://github.com/ErasmusMC-Bioinformatics/myFAIR'
     dest: '{{ myFAIR_install_path }}'
 
+- name: Create virtualenv
+  command: '/usr/bin/python3 -m venv {{ myFAIR_venv_path }}'
+
 - name: Install python3 packages in myFAIR virtualenv
   pip:
     name: django bioblend rdflib plotly python-magic
-    virtualenv: '{{ myFAIR_install_path }}/.venv'
+    virtualenv: '{{ myFAIR_venv_path }}'
 
 - name: 'make manage.py executable'
   file:
