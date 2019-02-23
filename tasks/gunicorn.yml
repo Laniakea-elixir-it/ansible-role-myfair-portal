@@ -1,0 +1,5 @@
+---
+- name: Install gunicorn in myFAIR virtualenv
+  pip:
+    name: gunicorn
+    virtualenv: '{{ myFAIR_venv_path }}'

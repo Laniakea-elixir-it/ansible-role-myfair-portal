@@ -6,3 +6,7 @@
 - include: myfair.yml
   become_user: www-data
   become: true
+
+- include: gunicorn.yml
+  become_user: www-data
+  become: true
