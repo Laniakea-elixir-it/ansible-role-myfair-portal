@@ -16,3 +16,15 @@
   file:
     path: '{{ myFAIR_install_path }}/manage.py'
     mode: a+x
+
+- name: Enable myFAIR
+  lineinfile:
+    dest: '{{ myFAIR_install_path }}/myFAIR/settings.py'
+     regexp: "ALLOWED_HOSTS"
+     line: "ALLOWED_HOSTS = ['127.0.0.1','{{ ansible_default_ipv4.address }}']"
+
+- name: myFAIR with gunicorn
+  lineinfile:
+    dest: '{{ myFAIR_install_path }}/myFAIR/settings.py'
+    regexp: "'DIRS':"
+    line: "        'DIRS': ['./myFAIR', 'html'],"
