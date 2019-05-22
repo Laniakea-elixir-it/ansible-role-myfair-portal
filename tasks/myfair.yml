@@ -9,7 +9,7 @@
 
 - name: Install python3 packages in myFAIR virtualenv
   pip:
-    name: django bioblend rdflib plotly python-magic
+    name: django bioblend rdflib plotly python-magic SPARQLWrapper
     virtualenv: '{{ myFAIR_venv_path }}'
 
 - name: 'make manage.py executable'
@@ -22,9 +22,3 @@
     dest: '{{ myFAIR_install_path }}/myFAIR/settings.py'
      regexp: "ALLOWED_HOSTS"
      line: "ALLOWED_HOSTS = ['127.0.0.1','{{ ansible_default_ipv4.address }}']"
-
-- name: myFAIR with gunicorn
-  lineinfile:
-    dest: '{{ myFAIR_install_path }}/myFAIR/settings.py'
-    regexp: "'DIRS':"
-    line: "        'DIRS': ['./myFAIR', 'html'],"
