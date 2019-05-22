@@ -1,0 +1,14 @@
+server {
+    listen 80;
+    server_name {{ ansible_default_ipv4.address }};
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root {{ myFAIR_install_path }};
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:{{ myFAIR_install_path }}/myFAIR.sock;
+    }
+}
