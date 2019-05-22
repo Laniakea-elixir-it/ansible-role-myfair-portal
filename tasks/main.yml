@@ -10,3 +10,7 @@
 - include: gunicorn.yml
   become_user: www-data
   become: true
+
+- include: proxy.yml
+  become_user: www-data
+  become: true
