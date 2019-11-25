@@ -3,5 +3,20 @@
   apt:
     name: nginx
     state: present
-  become_user: root
-  become_method: sudo
+
+- name: Setup nginx configuration file
+  template:
+    src: nginx-default.j2 
+    dest: '/etc/nginx/sites-available/myfair'
+
+- name: Activates myFAIR portal
+  file:
+    src: '/etc/nginx/sites-available/myFAIR'
+    dest: '/etc/nginx/sites-enabled/myFAIR'
+    state: link
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes

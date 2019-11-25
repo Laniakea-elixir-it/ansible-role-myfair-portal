@@ -12,3 +12,5 @@
   become: true
 
 - include: proxy.yml
+  become_user: root
+  become_method: sudo
