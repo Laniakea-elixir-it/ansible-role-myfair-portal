@@ -11,8 +11,8 @@
 
 - name: Activates myFAIR portal
   file:
-    src: '/etc/nginx/sites-available/myFAIR'
-    dest: '/etc/nginx/sites-enabled/myFAIR'
+    src: '/etc/nginx/sites-available/myfair'
+    dest: '/etc/nginx/sites-enabled/myfair'
     state: link
 
 - name: Restart nginx
