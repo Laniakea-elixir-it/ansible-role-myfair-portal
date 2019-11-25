@@ -6,7 +6,7 @@ After=network.target
 User=www-data
 Group=www-data
 WorkingDirectory={{ myFAIR_install_path }}
-ExecStart={{ myFAIR_install_path }}/.venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:{{ myFAIR_install_path }}/myFAIR.sock myFAIR.wsgi:application
+ExecStart={{ myFAIR_install_path }}/.venv/bin/gunicorn --access-logfile - --workers 3 --bind 0.0.0.0:8080 myFAIR.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
