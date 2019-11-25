@@ -16,3 +16,11 @@
     dest: '/etc/systemd/system/myfair.service'
   become_user: root
   become_method: sudo
+
+- name: Start myFAIR
+  service:
+    name: myfair
+    state: started
+    enabled: yes
+  become_user: root
+  become_method: sudo
